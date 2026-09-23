@@ -5,7 +5,7 @@ A production-ready personal portfolio for **Bayu Pratama Agus Kurniawan**, built
 ## Highlights
 
 - responsive editorial dark / gold design
-- real profile photo and downloadable CV
+- profile identity and printable CV / resume page
 - six featured project case studies
 - experience and education timeline
 - skill groups tied to real project evidence
@@ -25,39 +25,39 @@ A production-ready personal portfolio for **Bayu Pratama Agus Kurniawan**, built
 
 ## Local development
 
-```bash
+~~~bash
 npm install
 npm run dev
-```
+~~~
 
-Open `http://localhost:3000`.
+Open http://localhost:3000.
 
 ## Production
 
-```bash
+~~~bash
 npm run build
 npm start
-```
+~~~
 
 ## Free deployment with Vercel
 
 1. Import this GitHub repository in Vercel.
 2. Vercel will detect Next.js automatically.
 3. No environment variables are required.
-4. Optional: add `NEXT_PUBLIC_SITE_URL` with your final deployed URL so sitemap / metadata use the canonical domain.
+4. Optional: add NEXT_PUBLIC_SITE_URL with your final deployed URL so sitemap / metadata use the canonical domain.
 5. Deploy.
 
 ## Repository naming
 
-The project can be renamed to something clearer such as:
+Recommended final repository name: **bayu-pratama-portfolio**.
 
-- `portfolio`
-- `bayu-pratama-portfolio`
-- `personal-portfolio`
+The current repository can be renamed in **GitHub → Settings → General → Repository name**.
 
-## Content notes
+## Privacy
 
-The site intentionally does **not** show a public phone number or detailed street location. Contact is provided through email, LinkedIn, and GitHub.
+The site intentionally does **not** display a public phone number or a detailed home address. Contact is available through email, LinkedIn, and GitHub.
+
+The /resume page is print-friendly and can be saved as PDF directly from the browser.
 
 ## Stack
 
@@ -69,4 +69,4 @@ The site intentionally does **not** show a public phone number or detailed stree
 
 ---
 
-Built as a portfolio project itself: fast, responsive, accessible, and easy to deploy.
+Built as a portfolio project itself: responsive, accessible, easy to maintain, and ready for deployment.
