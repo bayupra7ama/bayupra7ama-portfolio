@@ -15,6 +15,7 @@ export type Project = {
   highlights: string[];
   architecture: string[];
   accent: string;
+  visual: "finance" | "map" | "academic" | "ai" | "chat" | "education";
 };
 
 export const projects: Project[] = [
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Flutter UI", "Application services", "Firebase Auth", "Cloud Firestore", "Native device APIs"],
     accent: "gold",
+    visual: "finance",
   },
   {
     slug: "spotgacor",
@@ -70,6 +72,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Android UI", "Retrofit", "Laravel REST API", "Relational data", "Google Maps SDK"],
     accent: "blue",
+    visual: "map",
   },
   {
     slug: "monitoring-ta",
@@ -97,6 +100,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Jetpack Compose", "Retrofit", "Laravel API", "Sanctum", "Filament admin"],
     accent: "violet",
+    visual: "academic",
   },
   {
     slug: "resikapp",
@@ -123,6 +127,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Android application", "Camera input", "ML classification", "Cloud services", "Integrated product flow"],
     accent: "green",
+    visual: "ai",
   },
   {
     slug: "lapor-infra",
@@ -149,6 +154,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Laravel application", "Reporting workflow", "Chat interaction", "Operational data", "SPBE context"],
     accent: "orange",
+    visual: "chat",
   },
   {
     slug: "7kaih",
@@ -175,6 +181,7 @@ export const projects: Project[] = [
     ],
     architecture: ["Blade UI", "Laravel 12", "Role middleware", "WhatsApp OTP service", "Excel import/export"],
     accent: "cyan",
+    visual: "education",
   },
 ];
 

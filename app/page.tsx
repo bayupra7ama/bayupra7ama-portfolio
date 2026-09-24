@@ -181,7 +181,7 @@ export default function Home() {
             {projects.map((project, idx) => (
               <article className={`project-row ${idx % 2 ? "project-reverse" : ""} ${idx === 0 ? "project-featured" : idx % 3 === 1 ? "project-compact" : "project-standard"}`} key={project.slug}>
                 <Link className="project-visual-link" href={`/projects/${project.slug}`} aria-label={`Read ${project.title} case study`}>
-                  <ProjectVisual title={project.title} index={project.index} accent={project.accent} />
+                  <ProjectVisual project={project} />
                 </Link>
                 <div className="project-copy">
                   <div className="project-topline"><span>{project.index}</span><span>{project.eyebrow}</span><span>{project.year}</span></div>

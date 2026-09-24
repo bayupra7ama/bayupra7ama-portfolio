@@ -32,7 +32,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div><span className="eyebrow-text">CASE STUDY · {project.index}</span><h1>{project.title}</h1></div>
             <p>{project.summary}</p>
           </div>
-          <ProjectVisual title={project.title} index={project.index} accent={project.accent} />
+          <ProjectVisual project={project} />
           <div className="case-meta">
             <div><span>ROLE</span><strong>{project.role}</strong></div>
             <div><span>YEAR</span><strong>{project.year}</strong></div>
