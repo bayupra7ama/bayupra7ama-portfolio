@@ -8,7 +8,7 @@ const server = spawn("npm", ["run", "start", "--", "--hostname", "127.0.0.1", "-
   stdio: "inherit",
   env: { ...process.env, PORT: String(port) },
 });
-const slugs = ["mudah-catat", "spotgacor", "monitoring-ta", "resikapp", "lapor-infra", "7kaih"];
+const slugs = ["ponsel-yen", "desa-cantik", "7kaih", "spotgacor", "ukt", "jastip", "mudah-catat", "monitoring-ta"];
 
 async function ready() {
   for (let attempt = 0; attempt < 90; attempt++) {
@@ -41,7 +41,7 @@ try {
     );
     console.log(`${size} hero tech icon colors: ${colors.join(", ")}`);
     const visuals = page.locator(".projects-list .project-visual");
-    if (await visuals.count() !== slugs.length) throw new Error("Expected six project visuals");
+    if (await visuals.count() !== slugs.length) throw new Error(`Expected ${slugs.length} project visuals`);
     for (let index = 0; index < slugs.length; index++) {
       await visuals.nth(index).screenshot({ path: `visual-qa/${size}-${slugs[index]}.png` });
     }
