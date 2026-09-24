@@ -34,6 +34,12 @@ try {
     const page = await browser.newPage({ viewport, deviceScaleFactor: 1, reducedMotion: "reduce" });
     page.on("pageerror", (error) => { throw error; });
     await page.goto(base, { waitUntil: "networkidle" });
+    await page.locator(".hero-tech").screenshot({ path: `visual-qa/${size}-hero-tech.png` });
+    await page.locator(".projects-list .tag-row").first().screenshot({ path: `visual-qa/${size}-project-tech.png` });
+    const colors = await page.locator(".hero-tech .tech-badge-icon").evaluateAll((nodes) =>
+      nodes.map((node) => getComputedStyle(node).color)
+    );
+    console.log(`${size} hero tech icon colors: ${colors.join(", ")}`);
     const visuals = page.locator(".projects-list .project-visual");
     if (await visuals.count() !== slugs.length) throw new Error("Expected six project visuals");
     for (let index = 0; index < slugs.length; index++) {
