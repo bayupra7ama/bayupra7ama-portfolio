@@ -42,6 +42,7 @@ try {
     for (const slug of slugs) {
       await page.goto(`${base}/projects/${slug}`, { waitUntil: "networkidle" });
       await page.locator(".highlight-grid").screenshot({ path: `visual-qa/${size}-highlights-${slug}.png` });
+      await page.locator(".architecture-flow").screenshot({ path: `visual-qa/${size}-system-${slug}.png` });
       if (slug === slugs[0]) {
         await page.locator(".case-hero .project-visual").screenshot({ path: `visual-qa/${size}-case-study.png` });
       }

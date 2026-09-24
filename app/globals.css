@@ -277,3 +277,30 @@ border:1px solid rgba(216,188,122,.22);box-shadow:0 0 90px rgba(216,188,122,.12)
  .highlight-icon svg{width:23px;height:23px}
  .highlight-grid .highlight-card p{margin:0;font-size:12px}
 }
+
+/* System View follows the same visual language as Engineering Highlights. */
+.architecture-flow{--flow-accent:var(--gold);gap:12px;overflow:visible;margin-top:44px}
+.architecture-flow.accent-blue{--flow-accent:#64baff}
+.architecture-flow.accent-violet{--flow-accent:#b59aff}
+.architecture-flow.accent-green{--flow-accent:#68dfa8}
+.architecture-flow.accent-orange{--flow-accent:#ffb77e}
+.architecture-flow.accent-cyan{--flow-accent:#70d3dc}
+:root[data-theme="light"] .architecture-flow.accent-blue{--flow-accent:#2768a4}
+:root[data-theme="light"] .architecture-flow.accent-violet{--flow-accent:#694aa4}
+:root[data-theme="light"] .architecture-flow.accent-green{--flow-accent:#25845d}
+:root[data-theme="light"] .architecture-flow.accent-orange{--flow-accent:#aa5930}
+:root[data-theme="light"] .architecture-flow.accent-cyan{--flow-accent:#167f83}
+.architecture-flow>.architecture-node{min-width:0;min-height:186px;padding:20px;gap:0;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,color-mix(in srgb,var(--surface2) 87%,var(--flow-accent) 13%),var(--surface));box-shadow:0 12px 30px rgba(0,0,0,.08);display:flex;flex-direction:column}
+.architecture-flow .architecture-icon{display:grid;place-items:center;width:54px;height:54px;flex:none;border-radius:14px;border:1px solid color-mix(in srgb,var(--flow-accent) 35%,transparent);background:color-mix(in srgb,var(--flow-accent) 15%,var(--surface));color:var(--flow-accent)}
+.architecture-icon svg{display:block;width:26px;height:26px;stroke-width:2.2}
+.architecture-copy{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.architecture-flow .architecture-step{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--flow-accent)}
+.architecture-flow .architecture-copy strong{font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+.architecture-flow .architecture-node i{right:-19px;top:calc(50% - 15px);width:28px;height:28px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--flow-accent) 35%,var(--line));border-radius:50%;background:var(--surface);color:var(--flow-accent);font-size:16px;font-style:normal;z-index:3}
+@media(max-width:900px){
+ .architecture-flow{flex-direction:column;gap:18px}
+ .architecture-flow>.architecture-node{min-height:98px;padding:16px;flex-direction:row;align-items:center;gap:16px}
+ .architecture-flow .architecture-icon{width:50px;height:50px}
+ .architecture-copy{margin-top:0;gap:6px}
+ .architecture-flow .architecture-node i{right:auto;left:calc(50% - 14px);top:auto;bottom:-23px;transform:rotate(90deg)}
+}

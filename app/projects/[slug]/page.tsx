@@ -8,7 +8,7 @@ import {
   FiCheckSquare, FiClipboard, FiCpu, FiDatabase, FiDownload, FiFileText,
   FiGitMerge, FiGlobe, FiLayers, FiLock, FiMapPin, FiMessageCircle,
   FiMessageSquare, FiShield, FiSmartphone, FiStar, FiTool, FiTruck,
-  FiUsers, FiWifi,
+  FiUsers, FiWifi, FiCloud, FiKey, FiLayout, FiSend, FiServer,
 } from "react-icons/fi";
 
 
@@ -19,6 +19,15 @@ const highlightIcons = {
   resikapp: [FiTruck, FiCamera, FiCpu, FiGitMerge, FiAward],
   "lapor-infra": [FiBriefcase, FiWifi, FiMessageSquare, FiGlobe, FiTool],
   "7kaih": [FiUsers, FiShield, FiBookOpen, FiMessageCircle, FiDownload],
+} as const;
+
+const architectureIcons = {
+  "mudah-catat": [FiSmartphone, FiLayers, FiShield, FiDatabase, FiKey],
+  spotgacor: [FiSmartphone, FiSend, FiServer, FiDatabase, FiMapPin],
+  "monitoring-ta": [FiLayout, FiSend, FiServer, FiShield, FiTool],
+  resikapp: [FiSmartphone, FiCamera, FiCpu, FiCloud, FiGitMerge],
+  "lapor-infra": [FiLayout, FiClipboard, FiMessageSquare, FiDatabase, FiGlobe],
+  "7kaih": [FiLayout, FiServer, FiShield, FiMessageCircle, FiDownload],
 } as const;
 
 export function generateStaticParams() {
@@ -102,14 +111,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className="container">
           <span className="case-label">SYSTEM VIEW</span>
           <h2 className="architecture-title">A simple view of the product flow.</h2>
-          <div className="architecture-flow">
-            {project.architecture.map((item, idx) => (
-              <div key={item}>
-                <span>{String(idx + 1).padStart(2, "0")}</span>
-                <strong>{item}</strong>
-                {idx < project.architecture.length - 1 && <i>→</i>}
-              </div>
-            ))}
+          <div className={`architecture-flow accent-${project.accent}`}>
+            {project.architecture.map((item, idx) => {
+              const Icon = architectureIcons[project.slug as keyof typeof architectureIcons]?.[idx] ?? FiLayers;
+              return (
+                <div className="architecture-node" key={item}>
+                  <span className="architecture-icon"><Icon aria-hidden="true" /></span>
+                  <div className="architecture-copy">
+                    <span className="architecture-step">{String(idx + 1).padStart(2, "0")}</span>
+                    <strong>{item}</strong>
+                  </div>
+                  {idx < project.architecture.length - 1 && <i aria-hidden="true">→</i>}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
