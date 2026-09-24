@@ -178,7 +178,7 @@ border:1px solid rgba(216,188,122,.22);box-shadow:0 0 90px rgba(216,188,122,.12)
 .pv{container-type:inline-size;--pv-accent:#d9aa54;--pv-ink:#ecf3f3;--pv-muted:#94a3b2;background:#101822;color:var(--pv-ink);font-family:Arial,Helvetica,sans-serif}
 .pv.accent-blue{--pv-accent:#64baff}.pv.accent-violet{--pv-accent:#b59aff}.pv.accent-green{--pv-accent:#68dfa8}.pv.accent-orange{--pv-accent:#ffb77e}.pv.accent-cyan{--pv-accent:#70d3dc}
 .pv .pv-ambient{position:absolute;inset:0;background:radial-gradient(circle at 65% 42%,color-mix(in srgb,var(--pv-accent) 24%,transparent),transparent 58%),radial-gradient(circle at 6% 90%,color-mix(in srgb,var(--pv-accent) 12%,transparent),transparent 40%),linear-gradient(135deg,#17222d,#0c151d)}
-.pv .pv-scene{position:relative;width:min(100%,760px);height:100%;margin:auto;flex:none}
+.pv .pv-scene{position:absolute;inset:0;width:min(100%,760px);height:auto;margin:auto}
 .pv .pv-concept{position:absolute;bottom:17px;left:20px;z-index:6;font-size:8px;letter-spacing:.16em;color:color-mix(in srgb,var(--pv-accent) 75%,white);font-weight:800}
 .pv .visual-index{z-index:6;color:rgba(255,255,255,.15)}
 .pv .pv-phone{position:absolute;border:5px solid #273541;border-radius:31px;background:#101922;box-shadow:0 26px 60px #0008,0 0 0 1px #ffffff29;overflow:hidden;z-index:2}
