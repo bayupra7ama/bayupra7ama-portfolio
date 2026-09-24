@@ -8,7 +8,7 @@ import {
   FiCheckSquare, FiClipboard, FiCpu, FiDatabase, FiDownload, FiFileText,
   FiGitMerge, FiGlobe, FiLayers, FiLock, FiMapPin, FiMessageCircle,
   FiMessageSquare, FiShield, FiSmartphone, FiStar, FiTool, FiTruck,
-  FiUsers, FiWifi, FiCloud, FiKey, FiLayout, FiSend, FiServer,
+  FiUsers, FiWifi, FiCloud, FiKey, FiLayout, FiSend, FiServer, FiCreditCard,
 } from "react-icons/fi";
 
 
