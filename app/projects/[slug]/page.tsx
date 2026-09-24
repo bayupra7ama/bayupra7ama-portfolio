@@ -13,6 +13,10 @@ import {
 
 
 const highlightIcons = {
+  "ponsel-yen": [FiTool, FiLayers, FiUsers, FiBarChart2, FiFileText],
+  "desa-cantik": [FiBarChart2, FiFileText, FiLayout, FiUsers, FiLock],
+  ukt: [FiClipboard, FiUsers, FiCpu, FiBarChart2, FiGitMerge],
+  jastip: [FiLayers, FiClipboard, FiLock, FiCreditCard, FiLayout],
   "mudah-catat": [FiDatabase, FiUsers, FiFileText, FiLock, FiSmartphone],
   spotgacor: [FiMapPin, FiLayers, FiShield, FiStar, FiMessageCircle],
   "monitoring-ta": [FiCheckSquare, FiClipboard, FiBell, FiBarChart2, FiFileText],
@@ -22,6 +26,10 @@ const highlightIcons = {
 } as const;
 
 const architectureIcons = {
+  "ponsel-yen": [FiLayout, FiServer, FiLayers, FiDatabase, FiFileText],
+  "desa-cantik": [FiGlobe, FiBarChart2, FiSend, FiLayout, FiDatabase],
+  ukt: [FiLayout, FiDatabase, FiSend, FiCpu, FiCheckSquare],
+  jastip: [FiLayout, FiServer, FiKey, FiCreditCard, FiDatabase],
   "mudah-catat": [FiSmartphone, FiLayers, FiShield, FiDatabase, FiKey],
   spotgacor: [FiSmartphone, FiSend, FiServer, FiDatabase, FiMapPin],
   "monitoring-ta": [FiLayout, FiSend, FiServer, FiShield, FiTool],
@@ -80,8 +88,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div>
             <p className="case-large-copy">{project.solution}</p>
             <div className="case-links">
+              {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">Open live app ↗</a>}
               {project.github && <a href={project.github} target="_blank" rel="noreferrer">View repository ↗</a>}
-              {project.secondaryGithub && <a href={project.secondaryGithub} target="_blank" rel="noreferrer">Backend repository ↗</a>}
+              {project.secondaryGithub && <a href={project.secondaryGithub} target="_blank" rel="noreferrer">Supporting repository ↗</a>}
             </div>
           </div>
         </div>
