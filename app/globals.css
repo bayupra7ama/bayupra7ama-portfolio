@@ -233,10 +233,19 @@ border:1px solid rgba(216,188,122,.22);box-shadow:0 0 90px rgba(216,188,122,.12)
  .case-hero .project-visual{min-height:410px}
  .pv-finance .pv-finance-phone{width:56%;height:88%;left:22%;top:5%}
  .pv-finance .pv-finance-slip,.pv-finance .pv-finance-float{display:none}
+ .pv-finance .pv-greeting{margin:10px 0 7px}
+ .pv-finance .pv-balance{padding:10px;gap:5px}
+ .pv-finance .pv-money-row{margin:6px 0}
+ .pv-finance .pv-money-row>div{padding:6px}
+ .pv-finance .pv-list-heading{margin:7px 0 3px}
+ .pv-finance .pv-transaction{padding:4px 0}
+ .pv-finance .pv-transaction + .pv-transaction{display:none}
  .pv-academic .pv-dashboard{width:90%;height:80%;left:5%;top:8%;transform:rotate(-1deg)}
  .pv-academic .pv-task-phone{display:none}
  .pv-academic .pv-academic-note{left:auto;right:5%;bottom:4%}
  .pv-ai .pv-ai-step,.pv-ai .pv-ai-tag{display:none}
  .pv-chat .pv-chat-window{height:84%;top:6%}
+ .pv-chat .pv-chat-input{display:none}
  .pv-education .pv-edu-board{height:88%;top:4%}
+ .pv-education .pv-edu-float{display:none}
 }
