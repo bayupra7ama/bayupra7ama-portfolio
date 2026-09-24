@@ -59,6 +59,45 @@ try {
     }
     await page.close();
   }
+
+  // Check navigation separately at narrow phone, phone, tablet, and laptop widths.
+  for (const width of [320, 390, 820, 1024, 1440]) {
+    const page = await browser.newPage({ viewport: { width, height: 844 }, reducedMotion: "reduce" });
+    page.on("pageerror", (error) => { throw error; });
+    await page.goto(base, { waitUntil: "networkidle" });
+    const toggle = page.locator(".nav-menu-toggle");
+    const menu = page.locator(".mobile-menu");
+    const desktopLinks = page.locator(".nav-links");
+    const narrow = width <= 1100;
+
+    if (await toggle.isVisible() !== narrow || await desktopLinks.isVisible() === narrow) {
+      throw new Error(`Navigation visibility is wrong at ${width}px`);
+    }
+    if (await page.locator(".site-header").evaluate((node) => node.scrollWidth) > width + 1) {
+      throw new Error(`Navigation overflows at ${width}px`);
+    }
+
+    if (narrow) {
+      await toggle.click();
+      if (await toggle.getAttribute("aria-expanded") !== "true" || !await menu.isVisible()) {
+        throw new Error(`Menu did not open at ${width}px`);
+      }
+      if (await menu.locator(".mobile-menu-links a").count() !== 5) {
+        throw new Error("Mobile navigation is missing a destination");
+      }
+      await menu.screenshot({ path: `visual-qa/navigation-open-${width}.png` });
+      await page.keyboard.press("Escape");
+      if (await menu.isVisible() || await toggle.getAttribute("aria-expanded") !== "false") {
+        throw new Error(`Escape did not close the menu at ${width}px`);
+      }
+      await toggle.click();
+      await menu.locator(".mobile-menu-links a").first().click();
+      if (await menu.isVisible()) throw new Error(`Navigation link did not close the menu at ${width}px`);
+    } else {
+      await page.locator(".site-header").screenshot({ path: "visual-qa/navigation-desktop.png" });
+    }
+    await page.close();
+  }
 } finally {
   await browser?.close();
   server.kill("SIGTERM");
