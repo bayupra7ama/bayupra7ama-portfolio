@@ -224,3 +224,19 @@ border:1px solid rgba(216,188,122,.22);box-shadow:0 0 90px rgba(216,188,122,.12)
 .pv-education .pv-edu-stats{display:flex;align-items:center;gap:14px;background:#fff;border-radius:11px;padding:12px;margin:15px 0 12px;box-shadow:0 8px 22px #51898a19}.pv-education .pv-edu-ring{width:clamp(53px,11cqw,90px);aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:conic-gradient(#53b8b7 0 71%,#d8ebea 71%);flex:none}.pv-education .pv-edu-ring>span{width:72%;height:72%;display:grid;place-items:center;border-radius:50%;background:#fff;font-size:clamp(15px,2.8cqw,24px);font-weight:800}.pv-education .pv-edu-ring small{font-size:9px!important}.pv-education .pv-edu-stats>div:nth-child(2){display:flex;flex-direction:column;gap:4px}.pv-education .pv-edu-stats strong{font-size:clamp(12px,2cqw,19px)}.pv-education .pv-edu-stats p{margin:0;font-size:clamp(8px,1.3cqw,11px);color:#6b8586}
 .pv-education .pv-edu-days{display:flex;gap:5px}.pv-education .pv-edu-days>div{flex:1;display:flex;align-items:center;flex-direction:column;gap:5px;font-size:9px;color:#708b8b}.pv-education .pv-edu-days b{display:grid;place-items:center;width:clamp(16px,4cqw,31px);aspect-ratio:1;border-radius:7px;background:#d9e9e8;color:#759b9a}.pv-education .pv-edu-days .done b{background:#62bcb7;color:white}.pv-education .pv-edu-journal{display:flex;align-items:center;gap:9px;border-radius:9px;background:#fff;padding:8px 10px;margin-top:12px;font-size:clamp(8px,1.4cqw,12px);font-weight:700}.pv-education .pv-edu-journal svg{color:#429c9e}.pv-education .pv-edu-journal span{display:flex;flex-direction:column;gap:3px;flex:1}.pv-education .pv-edu-journal small{color:#779092;font-weight:400}.pv-education .pv-edu-float{position:absolute;right:2%;bottom:5%;display:flex;align-items:center;gap:7px;background:#236e73;color:#fff;padding:11px;border-radius:9px;box-shadow:0 13px 30px #0005;font-size:clamp(8px,1.4cqw,11px)}.pv-education .pv-edu-float span{color:#9adddf}
 @media(max-width:560px){.pv .pv-concept{font-size:7px;bottom:12px;left:12px}.pv .pv-phone-screen{padding:18px 8px 12px}.pv-finance .pv-finance-slip{left:3%;top:19%;padding:7px}.pv-finance .pv-finance-float{right:1%;padding:7px}.pv-map .pv-map-search{height:34px}.pv-map .pv-map-spot{width:83%;bottom:13%;padding:7px}.pv-map .pv-map-directions{top:25%;right:2%}.pv-academic .pv-dashboard{width:88%;left:3%}.pv-academic .pv-task-phone{width:32%;right:3%}.pv-academic .pv-dash-side{width:25px}.pv-academic .pv-dash-side span{font-size:10px}.pv-ai .pv-ai-side{left:4%;width:45%}.pv-ai .pv-ai-phone{right:5%;width:42%}.pv-ai .pv-ai-tag{bottom:8%;font-size:7px}.pv-chat .pv-chat-window{left:3%;width:94%}.pv-chat .pv-chat-side{width:27px}.pv-chat .pv-chat-ticket{padding:7px;bottom:6%}.pv-education .pv-edu-board{left:3%;width:94%}.pv-education .pv-edu-float{padding:7px}}
+
+/* Small screens prioritize the primary interface so labels and controls remain readable. */
+.pv-finance .pv-finance-float{width:24%}
+.pv-ai .pv-ai-tag{top:5%;bottom:auto}
+@media(max-width:560px){
+ .project-featured .project-visual,.project-standard .project-visual,.project-compact .project-visual{min-height:clamp(380px,98vw,420px)}
+ .case-hero .project-visual{min-height:410px}
+ .pv-finance .pv-finance-phone{width:56%;height:88%;left:22%;top:5%}
+ .pv-finance .pv-finance-slip,.pv-finance .pv-finance-float{display:none}
+ .pv-academic .pv-dashboard{width:90%;height:80%;left:5%;top:8%;transform:rotate(-1deg)}
+ .pv-academic .pv-task-phone{display:none}
+ .pv-academic .pv-academic-note{left:auto;right:5%;bottom:4%}
+ .pv-ai .pv-ai-step,.pv-ai .pv-ai-tag{display:none}
+ .pv-chat .pv-chat-window{height:84%;top:6%}
+ .pv-education .pv-edu-board{height:88%;top:4%}
+}
