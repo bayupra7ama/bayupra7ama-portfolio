@@ -39,8 +39,13 @@ try {
     for (let index = 0; index < slugs.length; index++) {
       await visuals.nth(index).screenshot({ path: `visual-qa/${size}-${slugs[index]}.png` });
     }
-    await page.goto(`${base}/projects/mudah-catat`, { waitUntil: "networkidle" });
-    await page.locator(".case-hero .project-visual").screenshot({ path: `visual-qa/${size}-case-study.png` });
+    for (const slug of slugs) {
+      await page.goto(`${base}/projects/${slug}`, { waitUntil: "networkidle" });
+      await page.locator(".highlight-grid").screenshot({ path: `visual-qa/${size}-highlights-${slug}.png` });
+      if (slug === slugs[0]) {
+        await page.locator(".case-hero .project-visual").screenshot({ path: `visual-qa/${size}-case-study.png` });
+      }
+    }
     await page.close();
   }
 } finally {

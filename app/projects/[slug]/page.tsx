@@ -3,6 +3,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectVisual } from "@/components/project-visual";
 import { getProject, projects } from "@/lib/projects";
+import {
+  FiAward, FiBarChart2, FiBell, FiBookOpen, FiBriefcase, FiCamera,
+  FiCheckSquare, FiClipboard, FiCpu, FiDatabase, FiDownload, FiFileText,
+  FiGitMerge, FiGlobe, FiLayers, FiLock, FiMapPin, FiMessageCircle,
+  FiMessageSquare, FiShield, FiSmartphone, FiStar, FiTool, FiTruck,
+  FiUsers, FiWifi,
+} from "react-icons/fi";
+
+
+const highlightIcons = {
+  "mudah-catat": [FiDatabase, FiUsers, FiFileText, FiLock, FiSmartphone],
+  spotgacor: [FiMapPin, FiLayers, FiShield, FiStar, FiMessageCircle],
+  "monitoring-ta": [FiCheckSquare, FiClipboard, FiBell, FiBarChart2, FiFileText],
+  resikapp: [FiTruck, FiCamera, FiCpu, FiGitMerge, FiAward],
+  "lapor-infra": [FiBriefcase, FiWifi, FiMessageSquare, FiGlobe, FiTool],
+  "7kaih": [FiUsers, FiShield, FiBookOpen, FiMessageCircle, FiDownload],
+} as const;
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -64,8 +81,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <section className="case-section">
         <div className="container">
           <span className="case-label">ENGINEERING HIGHLIGHTS</span>
-          <div className="highlight-grid">
-            {project.highlights.map((item, idx) => <div key={item}><span>0{idx + 1}</span><p>{item}</p></div>)}
+          <div className={`highlight-grid accent-${project.accent}`}>
+            {project.highlights.map((item, idx) => {
+              const Icon = highlightIcons[project.slug as keyof typeof highlightIcons]?.[idx] ?? FiCheckSquare;
+              return (
+                <div className="highlight-card" key={item}>
+                  <div className="highlight-card-top">
+                    <span className="highlight-number">0{idx + 1}</span>
+                    <span className="highlight-icon"><Icon aria-hidden="true" /></span>
+                  </div>
+                  <p>{item}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
