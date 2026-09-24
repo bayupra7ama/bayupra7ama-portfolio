@@ -1,6 +1,22 @@
 import Link from "next/link";
 import { ProjectVisual } from "@/components/project-visual";
 import { extraProjects, projects } from "@/lib/projects";
+import {
+  SiAndroid,
+  SiFirebase,
+  SiFlutter,
+  SiGithub,
+  SiGooglemaps,
+  SiKotlin,
+  SiLaravel,
+  SiLinkedin,
+  SiMysql,
+  SiPhp,
+  SiPython,
+  SiTensorflow,
+  SiWhatsapp,
+} from "react-icons/si";
+import { MdCode, MdDescription, MdOutlineEmail, MdPayments, MdSecurity, MdStorage } from "react-icons/md";
 
 const experience = [
   {
@@ -32,20 +48,59 @@ const experience = [
 const skills = [
   {
     label: "Backend Engineering",
-    tools: "Laravel · PHP · REST API · MySQL · Authentication · Admin workflows",
+    tools: ["Laravel", "PHP", "REST API", "MySQL", "Authentication", "Admin workflows"],
     proof: "Monitoring TA · Jastip · 7KAIH · Lapor Infra",
   },
   {
     label: "Mobile Engineering",
-    tools: "Kotlin · Android · Jetpack Compose · Flutter · Retrofit · Firebase",
+    tools: ["Kotlin", "Android", "Jetpack Compose", "Flutter", "Retrofit", "Firebase"],
     proof: "SpotGacor · Monitoring TA · MUDAH CATAT · ResikApp",
   },
   {
     label: "Applied AI & Integrations",
-    tools: "Python · TensorFlow · Scikit-learn · Maps · Midtrans · WhatsApp OTP",
+    tools: ["Python", "TensorFlow", "Scikit-learn", "Maps", "Midtrans", "WhatsApp OTP"],
     proof: "ResikApp · UKT Classification · Location & payment flows",
   },
 ];
+
+const techIcons = {
+  Laravel: <SiLaravel />,
+  "Laravel 12": <SiLaravel />,
+  "Laravel API": <SiLaravel />,
+  PHP: <SiPhp />,
+  MySQL: <SiMysql />,
+  Kotlin: <SiKotlin />,
+  Android: <SiAndroid />,
+  "Jetpack Compose": <SiAndroid />,
+  Flutter: <SiFlutter />,
+  Firebase: <SiFirebase />,
+  Firestore: <SiFirebase />,
+  Python: <SiPython />,
+  TensorFlow: <SiTensorflow />,
+  Maps: <SiGooglemaps />,
+  "Google Maps": <SiGooglemaps />,
+  "WhatsApp OTP": <SiWhatsapp />,
+  "REST API": <MdCode />,
+  Retrofit: <MdCode />,
+  "Scikit-learn": <MdCode />,
+  Authentication: <MdSecurity />,
+  "Role Access": <MdSecurity />,
+  "Admin workflows": <MdStorage />,
+  Midtrans: <MdPayments />,
+} as const;
+
+const heroTech = ["Laravel", "Kotlin", "Flutter", "Firebase", "Python"];
+
+function TechBadge({ name, compact = false }: { name: string; compact?: boolean }) {
+  const icon = techIcons[name as keyof typeof techIcons] ?? <MdCode />;
+
+  return (
+    <span className={`tech-badge${compact ? " tech-badge-compact" : ""}`}>
+      <span className="tech-badge-icon" aria-hidden="true">{icon}</span>
+      <span>{name}</span>
+    </span>
+  );
+}
 
 export default function Home() {
   return (
@@ -60,10 +115,13 @@ export default function Home() {
             <p className="hero-lead">
               Mobile · Backend · Web · Applied AI — built with practical engineering, clear workflows, and product thinking.
             </p>
+            <div className="hero-tech" aria-label="Primary technology stack">
+              {heroTech.map((tech) => <TechBadge name={tech} key={tech} />)}
+            </div>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <span>↓</span></a>
-              <a className="button button-ghost" href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer">View GitHub ↗</a>
-              <a className="button button-ghost" href="/resume" target="_blank" rel="noreferrer">View CV ↗</a>
+              <a className="button button-ghost" href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer"><SiGithub aria-hidden="true" /> View GitHub ↗</a>
+              <a className="button button-ghost" href="/resume" target="_blank" rel="noreferrer"><MdDescription aria-hidden="true" /> View CV ↗</a>
             </div>
           </div>
 
@@ -103,7 +161,7 @@ export default function Home() {
                   <div className="project-topline"><span>{project.index}</span><span>{project.eyebrow}</span><span>{project.year}</span></div>
                   <h2>{project.title}</h2>
                   <p>{project.summary}</p>
-                  <div className="tag-row">{project.stack.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <div className="tag-row">{project.stack.slice(0, 4).map((tag) => <TechBadge name={tag} compact key={tag} />)}</div>
                   <div className="project-links">
                     <Link className="text-link" href={`/projects/${project.slug}`}>View case study <span>↗</span></Link>
                     {project.github && <a className="text-link subtle" href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
@@ -145,7 +203,9 @@ export default function Home() {
               <div className="stack-card" key={skill.label}>
                 <span>0{index + 1}</span>
                 <h3>{skill.label}</h3>
-                <p>{skill.tools}</p>
+                <div className="skill-tools">
+                  {skill.tools.map((tool) => <TechBadge name={tool} key={tool} />)}
+                </div>
                 <small>Used in → {skill.proof}</small>
               </div>
             ))}
@@ -186,7 +246,9 @@ export default function Home() {
                 <span className="extra-arrow">↗</span>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <small>{project.stack}</small>
+                <div className="extra-stack">
+                  {project.stack.split(" · ").map((tag) => <TechBadge name={tag} compact key={tag} />)}
+                </div>
               </a>
             ))}
           </div>
@@ -212,9 +274,9 @@ export default function Home() {
           <h2>Have a product, system, or idea worth building?</h2>
           <p>I&apos;m open to software opportunities, collaboration, and interesting projects.</p>
           <div className="contact-links">
-            <a href="mailto:bayupratamaaguskurniawan@gmail.com">Email me ↗</a>
-            <a href="https://www.linkedin.com/in/bayu-pratama-agus-kurniawan-770798309/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="mailto:bayupratamaaguskurniawan@gmail.com"><MdOutlineEmail aria-hidden="true" /> Email me ↗</a>
+            <a href="https://www.linkedin.com/in/bayu-pratama-agus-kurniawan-770798309/" target="_blank" rel="noreferrer"><SiLinkedin aria-hidden="true" /> LinkedIn ↗</a>
+            <a href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer"><SiGithub aria-hidden="true" /> GitHub ↗</a>
           </div>
           <div className="footer-line"><span>Bayu Pratama Agus Kurniawan</span><span>Riau, Indonesia · GMT+7</span><span>© 2026</span></div>
         </div>

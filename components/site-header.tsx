@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
+import { SiGithub } from "react-icons/si";
 
 export function SiteHeader() {
   return (
@@ -16,6 +17,7 @@ export function SiteHeader() {
           <Link href="/#contact">Contact</Link>
         </nav>
         <div className="nav-actions">
+          <a className="nav-icon-link" href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer" aria-label="GitHub profile"><SiGithub /></a>
           <a className="nav-cv" href="/resume" target="_blank" rel="noreferrer">View CV</a>
           <ThemeToggle />
         </div>
