@@ -304,3 +304,62 @@ border:1px solid rgba(216,188,122,.22);box-shadow:0 0 90px rgba(216,188,122,.12)
  .architecture-copy{margin-top:0;gap:6px}
  .architecture-flow .architecture-node i{right:auto;left:calc(50% - 14px);top:auto;bottom:-23px;transform:rotate(90deg)}
 }
+
+/* Product concepts for the newly selected case studies. */
+.pv-product .pv-product-window{position:absolute;inset:11% 10% 13%;border:1px solid #ffffff2b;border-radius:14px;background:#17232d;box-shadow:0 28px 65px #0009;overflow:hidden;transform:rotate(-1.5deg)}
+.pv-product .pv-product-body{padding:clamp(11px,3.2cqw,27px);height:calc(100% - 33px)}
+.pv-product .pv-product-heading small,.pv-product .pv-product-list>strong span,.pv-product .pv-decision-result small{color:var(--pv-accent);font-size:clamp(7px,1.2cqw,10px);font-weight:800;letter-spacing:.12em}
+.pv-product .pv-product-heading h3{font-size:clamp(16px,3.5cqw,29px);letter-spacing:-.045em;margin:6px 0 4px}
+.pv-product .pv-product-heading p{margin:0;color:#a8b7c2;font-size:clamp(8px,1.5cqw,12px)}
+.pv-product .pv-product-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(5px,1.3cqw,12px);margin:clamp(10px,2.3cqw,20px) 0}
+.pv-product .pv-product-stats>div{min-width:0;display:flex;flex-direction:column;gap:4px;padding:clamp(7px,1.7cqw,14px);background:#26343e;border:1px solid #ffffff12;border-radius:10px}
+.pv-product .pv-product-stats svg{width:15px;height:15px;color:var(--pv-accent)}
+.pv-product .pv-product-stats small{color:#9baeb9;font-size:clamp(6px,1.05cqw,8px);letter-spacing:.08em}
+.pv-product .pv-product-stats b{font-size:clamp(13px,2.7cqw,22px)}
+.pv-product .pv-product-float{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:clamp(7px,1.5cqw,12px);border:1px solid #ffffff34;border-radius:10px;background:#273a42ed;box-shadow:0 15px 35px #0008;font-size:clamp(7px,1.3cqw,11px)}
+.pv-product .pv-product-float svg,.pv-product .pv-product-float b{color:var(--pv-accent)}
+.pv-product .pv-product-float b{margin-left:7px;white-space:nowrap}
+.pv-service .pv-product-list{background:#202f38;border-radius:10px;padding:clamp(8px,1.8cqw,14px)}
+.pv-service .pv-product-list>strong{display:flex;justify-content:space-between;gap:6px;font-size:clamp(9px,1.55cqw,12px)}
+.pv-service .pv-product-list>div{display:flex;align-items:center;gap:9px;padding:clamp(5px,1.1cqw,9px) 0;border-bottom:1px solid #ffffff12;font-size:clamp(8px,1.3cqw,10px)}
+.pv-service .pv-product-list>div:last-child{border:0}
+.pv-service .pv-product-list>div svg{flex:none;color:var(--pv-accent)}
+.pv-service .pv-product-list>div span{display:flex;flex-direction:column;gap:3px;flex:1}
+.pv-service .pv-product-list>div small{color:#a1b0ba}
+.pv-service .pv-product-list>div b{font-size:clamp(6px,1cqw,8px);color:var(--pv-accent)}
+.pv-service .pv-service-float{right:2%;bottom:12%}
+.pv-village .pv-product-window{inset:10% 12% 14%;transform:rotate(1deg)}
+.pv-village .pv-product-chart{background:#21343a;border-radius:10px;padding:clamp(7px,1.7cqw,13px)}
+.pv-village .pv-product-chart strong{font-size:clamp(9px,1.6cqw,12px)}
+.pv-village .pv-product-chart>div{height:clamp(38px,10cqw,85px);display:flex;align-items:flex-end;gap:5px;margin:8px 0}
+.pv-village .pv-product-chart i{flex:1;background:linear-gradient(0deg,#3f967b,var(--pv-accent));border-radius:3px 3px 0 0;opacity:.85}
+.pv-village .pv-product-chart small{color:#9db6b0;font-size:clamp(7px,1.1cqw,9px)}
+.pv-village .pv-village-float{right:3%;bottom:9%}
+.pv-classification .pv-product-window{inset:12% 10% 13%;transform:rotate(1deg)}
+.pv-classification .pv-decision-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(7px,2cqw,16px);margin-top:clamp(12px,3cqw,26px)}
+.pv-classification .pv-decision-fields,.pv-classification .pv-decision-result{border:1px solid #ffffff1c;background:#26313e;border-radius:10px;padding:clamp(9px,2.2cqw,18px);min-width:0}
+.pv-classification .pv-decision-fields{display:flex;flex-direction:column;gap:clamp(5px,1.5cqw,12px)}
+.pv-classification .pv-decision-fields>strong{font-size:clamp(9px,1.7cqw,13px)}
+.pv-classification .pv-decision-fields span{display:flex;justify-content:space-between;gap:3px;font-size:clamp(7px,1.25cqw,10px);color:#b6c5d1}
+.pv-classification .pv-decision-fields span b{color:var(--pv-accent)}
+.pv-classification .pv-decision-result{display:flex;flex-direction:column;gap:clamp(6px,1.4cqw,12px);background:linear-gradient(145deg,#3c3259,#283645)}
+.pv-classification .pv-decision-result svg{color:var(--pv-accent);font-size:clamp(18px,3cqw,26px)}
+.pv-classification .pv-decision-result strong{font-size:clamp(12px,2.3cqw,19px)}
+.pv-classification .pv-decision-result span{color:#b6b0c8;font-size:clamp(7px,1.25cqw,10px)}
+.pv-classification .pv-classification-float{right:3%;bottom:9%}
+.pv-commerce .pv-product-window{inset:11% 11% 13%;transform:rotate(-1deg)}
+.pv-commerce .pv-commerce-items{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,1.5cqw,13px);margin:clamp(13px,3.2cqw,27px) 0}
+.pv-commerce .pv-commerce-items>div{min-width:0;display:flex;flex-direction:column;gap:clamp(4px,1.4cqw,10px);padding:clamp(7px,1.7cqw,15px);background:#21343e;border:1px solid #ffffff16;border-radius:9px}
+.pv-commerce .pv-commerce-items>div span{color:var(--pv-accent);font-size:clamp(13px,2.6cqw,23px);font-weight:800}
+.pv-commerce .pv-commerce-items>div strong{font-size:clamp(8px,1.45cqw,12px)}
+.pv-commerce .pv-commerce-items>div small{color:#aac2c6;font-size:clamp(7px,1.15cqw,9px)}
+.pv-commerce .pv-commerce-total{display:flex;justify-content:space-between;gap:6px;align-items:center;border-top:1px solid #ffffff25;padding-top:clamp(7px,1.5cqw,12px)}
+.pv-commerce .pv-commerce-total span{font-size:clamp(7px,1.2cqw,9px);color:#9eb0bc;letter-spacing:.08em}
+.pv-commerce .pv-commerce-total strong{display:flex;gap:5px;align-items:center;color:var(--pv-accent);font-size:clamp(8px,1.5cqw,11px)}
+.pv-commerce .pv-commerce-float{right:2%;bottom:10%}
+@container (max-width:460px){
+ .pv-product .pv-product-window{inset:8% 5% 16%}
+ .pv-product .pv-product-heading p{display:none}
+ .pv-product .pv-product-stats{margin:8px 0}
+ .pv-product .pv-product-float{bottom:6%}
+}
