@@ -9,7 +9,6 @@ import {
   SiGooglemaps,
   SiKotlin,
   SiLaravel,
-  SiLinkedin,
   SiMysql,
   SiPhp,
   SiPython,
@@ -89,15 +88,42 @@ const techIcons = {
   Midtrans: <MdPayments />,
 } as const;
 
+const techColors: Record<string, string> = {
+  Laravel: "#ff2d20",
+  "Laravel 12": "#ff2d20",
+  "Laravel API": "#ff2d20",
+  PHP: "#777bb4",
+  MySQL: "#4479a1",
+  Kotlin: "#a97bff",
+  Android: "#3ddc84",
+  "Jetpack Compose": "#3ddc84",
+  Flutter: "#54c5f8",
+  Firebase: "#ffca28",
+  Firestore: "#ffca28",
+  Python: "#4b8bbe",
+  TensorFlow: "#ff8a00",
+  Maps: "#4285f4",
+  "Google Maps": "#4285f4",
+  "WhatsApp OTP": "#25d366",
+  "REST API": "#5aa7ff",
+  Retrofit: "#48b983",
+  "Scikit-learn": "#f7931e",
+  Authentication: "#a78bfa",
+  "Role Access": "#a78bfa",
+  "Admin workflows": "#94a3b8",
+  Midtrans: "#24b8eb",
+};
+
 const heroTech = ["Laravel", "Kotlin", "Flutter", "Firebase", "Python"];
 
 function TechBadge({ name, compact = false }: { name: string; compact?: boolean }) {
   const icon = techIcons[name as keyof typeof techIcons] ?? <MdCode />;
+  const iconColor = techColors[name] ?? "#d8bc7a";
 
   return (
     <span className={`tech-badge${compact ? " tech-badge-compact" : ""}`}>
-      <span className="tech-badge-icon" aria-hidden="true">{icon}</span>
-      <span>{name}</span>
+      <span className="tech-badge-icon" style={{ color: iconColor }} aria-hidden="true">{icon}</span>
+      <span className="tech-badge-label">{name}</span>
     </span>
   );
 }
@@ -153,7 +179,7 @@ export default function Home() {
 
           <div className="projects-list">
             {projects.map((project, idx) => (
-              <article className={`project-row ${idx % 2 ? "project-reverse" : ""}`} key={project.slug}>
+              <article className={`project-row ${idx % 2 ? "project-reverse" : ""} ${idx === 0 ? "project-featured" : idx % 3 === 1 ? "project-compact" : "project-standard"}`} key={project.slug}>
                 <Link className="project-visual-link" href={`/projects/${project.slug}`} aria-label={`Read ${project.title} case study`}>
                   <ProjectVisual title={project.title} index={project.index} accent={project.accent} />
                 </Link>
@@ -275,7 +301,7 @@ export default function Home() {
           <p>I&apos;m open to software opportunities, collaboration, and interesting projects.</p>
           <div className="contact-links">
             <a href="mailto:bayupratamaaguskurniawan@gmail.com"><MdOutlineEmail aria-hidden="true" /> Email me ↗</a>
-            <a href="https://www.linkedin.com/in/bayu-pratama-agus-kurniawan-770798309/" target="_blank" rel="noreferrer"><SiLinkedin aria-hidden="true" /> LinkedIn ↗</a>
+            <a href="https://www.linkedin.com/in/bayu-pratama-agus-kurniawan-770798309/" target="_blank" rel="noreferrer">{/* LinkedIn icon temporarily disabled */}LinkedIn ↗</a>
             <a href="https://github.com/bayupra7ama" target="_blank" rel="noreferrer"><SiGithub aria-hidden="true" /> GitHub ↗</a>
           </div>
           <div className="footer-line"><span>Bayu Pratama Agus Kurniawan</span><span>Riau, Indonesia · GMT+7</span><span>© 2026</span></div>
