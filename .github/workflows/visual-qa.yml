@@ -1,0 +1,40 @@
+name: Capture project visuals
+
+on:
+  push:
+    paths:
+      - "components/project-visual.tsx"
+      - "app/globals.css"
+      - "scripts/capture-visuals.mjs"
+      - ".github/workflows/visual-qa.yml"
+  pull_request:
+    paths:
+      - "components/project-visual.tsx"
+      - "app/globals.css"
+      - "scripts/capture-visuals.mjs"
+      - ".github/workflows/visual-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: node scripts/capture-visuals.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: project-visuals
+          path: visual-qa/
+          retention-days: 7
