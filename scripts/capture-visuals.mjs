@@ -49,6 +49,9 @@ try {
       await page.goto(`${base}/projects/${slug}`, { waitUntil: "networkidle" });
       await page.locator(".highlight-grid").screenshot({ path: `visual-qa/${size}-highlights-${slug}.png` });
       await page.locator(".architecture-flow").screenshot({ path: `visual-qa/${size}-system-${slug}.png` });
+      if (slug === "jastip") {
+        await page.locator(".next-project").screenshot({ path: `visual-qa/${size}-next-case-study.png` });
+      }
       if (slug === slugs[0]) {
         await page.locator(".case-heading").screenshot({ path: `visual-qa/${size}-case-heading.png` });
         await page.locator(".case-hero .project-visual").screenshot({ path: `visual-qa/${size}-case-study.png` });
