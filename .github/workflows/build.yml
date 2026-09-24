@@ -25,3 +25,9 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Build production site
         run: npm run build
+      - name: Save generated lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+          retention-days: 1
