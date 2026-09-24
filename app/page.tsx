@@ -10,6 +10,11 @@ import {
   SiKotlin,
   SiLaravel,
   SiMysql,
+  SiMongodb,
+  SiNextdotjs,
+  SiReact,
+  SiJavascript,
+  SiR,
   SiPhp,
   SiPython,
   SiTensorflow,
@@ -68,6 +73,16 @@ const techIcons = {
   "Laravel API": <SiLaravel />,
   PHP: <SiPhp />,
   MySQL: <SiMysql />,
+  MongoDB: <SiMongodb />,
+  "Next.js": <SiNextdotjs />,
+  React: <SiReact />,
+  JavaScript: <SiJavascript />,
+  R: <SiR />,
+  "C5.0": <MdCode />,
+  "ESC/POS": <MdDescription />,
+  Filament: <MdStorage />,
+  "AES-256": <MdSecurity />,
+  Livewire: <MdCode />,
   Kotlin: <SiKotlin />,
   Android: <SiAndroid />,
   "Jetpack Compose": <SiAndroid />,
@@ -94,6 +109,16 @@ const techColors: Record<string, string> = {
   "Laravel API": "#ff2d20",
   PHP: "#777bb4",
   MySQL: "#4479a1",
+  MongoDB: "#47a248",
+  "Next.js": "#f5f5f5",
+  React: "#61dafb",
+  JavaScript: "#f7df1e",
+  R: "#75aadb",
+  "C5.0": "#7bb7ee",
+  "ESC/POS": "#e2bb77",
+  Filament: "#fdae4b",
+  "AES-256": "#a78bfa",
+  Livewire: "#fb70a9",
   Kotlin: "#a97bff",
   Android: "#3ddc84",
   "Jetpack Compose": "#3ddc84",
@@ -174,7 +199,7 @@ export default function Home() {
         <div className="container">
           <div className="section-heading">
             <div><span className="section-number">01</span><span className="eyebrow-text">SELECTED WORK</span></div>
-            <p>Six projects chosen for the engineering story they tell — from mobile finance and location platforms to public-service workflows and applied AI.</p>
+            <p>Eight projects selected across business operations, public services, education, mobile products, and decision support.</p>
           </div>
 
           <div className="projects-list">
@@ -190,6 +215,7 @@ export default function Home() {
                   <div className="tag-row">{project.stack.slice(0, 4).map((tag) => <TechBadge name={tag} compact key={tag} />)}</div>
                   <div className="project-links">
                     <Link className="text-link" href={`/projects/${project.slug}`}>View case study <span>↗</span></Link>
+                    {project.live && <a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer">Live app ↗</a>}
                     {project.github && <a className="text-link subtle" href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
                   </div>
                 </div>
@@ -237,7 +263,7 @@ export default function Home() {
             ))}
           </div>
           <div className="metric-strip">
-            <div><strong>6+</strong><span>Featured Projects</span></div>
+            <div><strong>8</strong><span>Featured Projects</span></div>
             <div><strong>2</strong><span>Bangkit Cohorts</span></div>
             <div><strong>3.72</strong><span>GPA · Cumlaude</span></div>
             <div><strong>1</strong><span>Professional Internship</span></div>

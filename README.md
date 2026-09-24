@@ -6,7 +6,7 @@ A production-ready personal portfolio for **Bayu Pratama Agus Kurniawan**, built
 
 - responsive editorial dark / gold design
 - profile identity and printable CV / resume page
-- six featured project case studies
+- eight featured projects with case-study pages
 - experience and education timeline
 - skill groups tied to real project evidence
 - SEO metadata, sitemap, robots, and web manifest
@@ -16,12 +16,16 @@ A production-ready personal portfolio for **Bayu Pratama Agus Kurniawan**, built
 
 ## Featured work
 
-- MUDAH CATAT — Flutter / Firebase finance application
-- SpotGacor — Kotlin / Google Maps / Laravel API
-- Monitoring TA — Jetpack Compose / Laravel
-- ResikApp — Bangkit capstone / applied AI
-- Lapor Infra — Laravel public-service reporting workflow
+- PonselYen Management System — Next.js / MongoDB; live application
+- Desa Cantik Air Putih — Laravel / Filament / village statistics and services
 - 7KAIH Monitoring — Laravel multi-role education platform
+- SpotGacor — Kotlin / Google Maps / Laravel API
+- UKT Reduction Classification — Laravel / R / C5.0
+- Jastip E-Commerce — Laravel / Livewire / Midtrans
+- MUDAH CATAT — Flutter / Firebase finance application
+- Monitoring TA — Jetpack Compose / Laravel
+
+ResikApp, Lapor Infra, and Sistem Administrasi Surat Desa are linked in More Engineering. Detailed project narratives and media can be expanded later.
 
 ## Local development
 

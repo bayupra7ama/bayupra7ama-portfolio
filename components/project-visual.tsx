@@ -52,7 +52,59 @@ function Chat() {
 function Education() {
   return <div className="pv-scene pv-education"><div className="pv-edu-orbit" /><div className="pv-edu-board"><div className="pv-window-bar"><i /><i /><i /><span>7KAIH / Student journal</span></div><div className="pv-edu-body"><div className="pv-edu-head"><div><small>STUDENT DASHBOARD</small><h3>Good habits, every day.</h3><span>Tracking progress together with family and school.</span></div><div className="pv-edu-book"><FiBookOpen /></div></div><div className="pv-edu-stats"><div className="pv-edu-ring"><span>5<small>/ 7</small></span></div><div><small>THIS WEEK</small><strong>Habit streak</strong><p>Keep your momentum going!</p></div></div><div className="pv-edu-days">{["M","T","W","T","F","S","S"].map((day,i)=><div key={i} className={i<5?"done":""}><span>{day}</span><b>{i<5?<FiCheck />:"·"}</b></div>)}</div><div className="pv-edu-journal"><FiBookOpen /><span>Today’s journal <small>Learning & reading</small></span><FiArrowUpRight /></div></div></div><div className="pv-edu-float"><FiCheckCircle /> Journal submitted <span>Today</span></div></div>;
 }
-const visuals = { finance: Finance, map: MapScene, academic: Academic, ai: Ai, chat: Chat, education: Education };
+
+function Service() {
+  return <div className="pv-scene pv-product pv-service">
+    <div className="pv-product-window">
+      <div className="pv-window-bar"><i /><i /><i /><span>PonselYen / Operations</span></div>
+      <div className="pv-product-body">
+        <div className="pv-product-heading"><small>SERVICE DESK</small><h3>Today at the shop</h3><p>Repair orders, inventory, and sales in one place.</p></div>
+        <div className="pv-product-stats"><div><FiClock /><small>IN SERVICE</small><b>08</b></div><div><FiCheckCircle /><small>READY</small><b>03</b></div><div><FiTrendingUp /><small>SALES</small><b>Rp 2.4m</b></div></div>
+        <div className="pv-product-list"><strong>Repair queue <span>View all →</span></strong><div><FiClock /><span>Samsung A54 <small>Waiting for part</small></span><b>IN PROGRESS</b></div><div><FiCheckCircle /><span>iPhone 11 <small>Ready for pickup</small></span><b>READY</b></div></div>
+      </div>
+    </div>
+    <div className="pv-product-float pv-service-float"><FiCreditCard /> Receipt ready <b>58 mm</b></div>
+  </div>;
+}
+function Village() {
+  return <div className="pv-scene pv-product pv-village">
+    <div className="pv-product-window">
+      <div className="pv-window-bar"><i /><i /><i /><span>Desa Cantik / Statistics</span></div>
+      <div className="pv-product-body">
+        <div className="pv-product-heading"><small>DESA AIR PUTIH</small><h3>Village in numbers.</h3><p>Public information &amp; administrative services.</p></div>
+        <div className="pv-product-stats"><div><FiUser /><small>RESIDENTS</small><b>2,480</b></div><div><FiBookOpen /><small>FAMILIES</small><b>642</b></div><div><FiMessageCircle /><small>REQUESTS</small><b>18</b></div></div>
+        <div className="pv-product-chart"><strong>Population overview</strong><div>{[46,73,59,88,67,100,79,92].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div><small>Interactive village statistics</small></div>
+      </div>
+    </div>
+    <div className="pv-product-float pv-village-float"><FiCheckCircle /> Letter request <b>SUBMITTED</b></div>
+  </div>;
+}
+function Classification() {
+  return <div className="pv-scene pv-product pv-classification">
+    <div className="pv-product-window">
+      <div className="pv-window-bar"><i /><i /><i /><span>UKT / Application review</span></div>
+      <div className="pv-product-body">
+        <div className="pv-product-heading"><small>DECISION SUPPORT</small><h3>Review with context.</h3><p>Student submission → C5.0 classification.</p></div>
+        <div className="pv-decision-layout"><div className="pv-decision-fields"><strong>Application details</strong><span>Student profile <b>✓</b></span><span>Supporting documents <b>✓</b></span><span>Financial data <b>✓</b></span></div><div className="pv-decision-result"><FiActivity /><small>MODEL RESULT</small><strong>Ready for review</strong><span>R · C5.0 classification</span></div></div>
+      </div>
+    </div>
+    <div className="pv-product-float pv-classification-float"><FiCheckCircle /> Review workflow <b>R API</b></div>
+  </div>;
+}
+function Commerce() {
+  return <div className="pv-scene pv-product pv-commerce">
+    <div className="pv-product-window">
+      <div className="pv-window-bar"><i /><i /><i /><span>Jastip / Checkout</span></div>
+      <div className="pv-product-body">
+        <div className="pv-product-heading"><small>PERSONAL SHOPPING</small><h3>Order with confidence.</h3><p>From product selection to payment.</p></div>
+        <div className="pv-commerce-items"><div><span>01</span><strong>Shopping request</strong><small>Added to cart</small></div><div><span>02</span><strong>Transaction PIN</strong><small>Verify checkout</small></div><div><span>03</span><strong>Midtrans</strong><small>Payment</small></div></div>
+        <div className="pv-commerce-total"><span>ORDER SUMMARY</span><strong>Ready for checkout <FiArrowUpRight /></strong></div>
+      </div>
+    </div>
+    <div className="pv-product-float pv-commerce-float"><FiCreditCard /> Payment flow <b>MIDTRANS</b></div>
+  </div>;
+}
+const visuals = { finance: Finance, map: MapScene, academic: Academic, ai: Ai, chat: Chat, education: Education, service: Service, village: Village, classification: Classification, commerce: Commerce };
 export function ProjectVisual({ project }: { project: Project }) {
   const Scene = visuals[project.visual];
   return <div className={`project-visual accent-${project.accent} pv pv-${project.visual}`} role="img" aria-label={`Concept illustration of ${project.title}: ${project.eyebrow}`}>
